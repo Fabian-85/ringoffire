@@ -1,0 +1,28 @@
+.startscreen{
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    background-color: #404040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    >img{
+        height: 100vh;
+    }
+}
+
+.startBox{
+   position: absolute;
+   display: flex;
+   justify-content: center;
+   left:0;
+   right: 0;
+   bottom: 80px;
+   >img{ 
+   width: 35vw;
+   cursor: pointer;
+   &:hover{
+    filter: brightness(1.25);
+   }
+   }
+}
