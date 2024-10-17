@@ -37,14 +37,16 @@ export class GameService {
   }
 
   
-  subSingleGame(subGame:any,id:string) {
+  subSingleGame(subGame:any,id:any) {
     return onSnapshot(this.getSingleDocRef(id), (game) => {
       subGame = this.setGameJson(game.data(),game.id);
+      console.log(subGame);
     });
   }
   
 
   setGameJson(object: any, id: string): any  {
+    
     return {
       id:id ,
       players: object.players,

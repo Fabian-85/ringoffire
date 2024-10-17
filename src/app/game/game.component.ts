@@ -34,19 +34,21 @@ export class GameComponent {
   game: Game |any;
   currentCard: string | undefined;
   unsubGame :any;
+  id:any;
   constructor(public dialog: MatDialog,private gameService:GameService, private route:ActivatedRoute) {
-   
+     
   }
 
     ngOnInit() {
     this.newGame();
     this.route.params.subscribe((param)=>{
-      this.unsubGame = this.gameService.subSingleGame(this.game,param['id']);
-     
-    }
-    );
-     
-     
+      this.id=param['id'];
+    });
+    setTimeout(()=>{
+      this.unsubGame = this.gameService.subSingleGame(this.game,this.id);
+      console.log(this.game);
+    },2000);
+    
   }
 
   takeCard() {
