@@ -33,7 +33,7 @@ export class GameComponent {
   pickCardAnimation = false;
   game: Game |any;
   currentCard: string | undefined;
-
+  unsubGame :any;
   constructor(public dialog: MatDialog,private gameService:GameService, private route:ActivatedRoute) {
    
   }
@@ -41,10 +41,8 @@ export class GameComponent {
     ngOnInit() {
     this.newGame();
     this.route.params.subscribe((param)=>{
-      this.gameService.loadSingleGame(param['id']);
-      setTimeout(()=>{
-        this.game = this.gameService.game;
-      },2000);
+      this.unsubGame = this.gameService.subSingleGame(this.game,param['id']);
+     
     }
     );
      

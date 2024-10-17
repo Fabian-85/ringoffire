@@ -15,7 +15,7 @@ export class GameService {
   firestore: Firestore = inject(Firestore);
 
   unsubGames;
-  unsubGame :any;
+   
 
   constructor() {
     this.unsubGames = this.subGames();
@@ -37,15 +37,10 @@ export class GameService {
   }
 
   
-  subSingleGame(id:string) {
+  subSingleGame(subGame:any,id:string) {
     return onSnapshot(this.getSingleDocRef(id), (game) => {
-      this.game = this.setGameJson(game.data(),game.id);
-      console.log(this.game);
+      subGame = this.setGameJson(game.data(),game.id);
     });
-  }
-
-    loadSingleGame(id:string){
-    this.unsubGame = this.subSingleGame(id);
   }
   
 
